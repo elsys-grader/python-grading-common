@@ -1,8 +1,9 @@
 import xmlrpc.client
 import os
+DEBUG_AUTH_TOKEN = '12345'
 
 rpc = xmlrpc.client.ServerProxy('http://172.17.0.1:' + os.environ['PORT'])
-token = os.environ['AUTH']
+token = os.environ.get('AUTH', DEBUG_AUTH_TOKEN)
 
 
 def start_container():
